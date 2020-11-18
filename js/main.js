@@ -73,5 +73,14 @@ console.log(arrSum(array1));
 /* 5. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb páros elemeinek a számát! */
 
 function arrEven1(arr) {
-    
+    let even = [];
+    for (i = 0; i < arr.length; i += 1) {
+        if (arr[i] % 2 === 0) {
+            even.push(arr[i]);
+        }
+    } return even.length;
 }
+
+console.log(arrEven1(array1));
+
+
