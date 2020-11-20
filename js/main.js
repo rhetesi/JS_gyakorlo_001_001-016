@@ -1,5 +1,5 @@
 let array1 = [265, 123, 6334, 21, 75543, 123, 2, 35, 23, 21, 897];
-let array2 = [24, 674, 875, 3324, 986, 1, 293, 1];
+let array2 = [24, 674, 875, 3324, 986, 1, 293];
 const arrayBS = [265, 123, 6334, 21, 75543, 123, 2, 35, 23, 21, 897];
 const arrayBSort = [265, 123, 6334, 21, 75543, 123, 2, 35, 23, 21, 897];
 
@@ -95,10 +95,34 @@ console.log(arrEven(array1));
 
 
 /* 6. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb második legkisebb elemét! */
+console.log('6. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb második legkisebb elemét!');
 
+function bubbleSort3(arr) {
+    let swapped;
+    do {
+        swapped = false;
+        for (i = 0; i < arr.length - 1; i += 1) {
+            if (arr[i] > arr[i + 1]) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true
+            }
+        }
+    } while (swapped)
+    return arr;
+}
 
+bubbleSort3(array1);
+console.log(array1);
+console.log(array1[1]);
 
 /* 7. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb harmadik legnagyobb elemét! */
+console.log('7. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb harmadik legnagyobb elemét!');
+
+let length = array1.length;
+console.log(array1[length - 3]);
+
 
 /*8. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, bármilyen típusú elemeket tartalmazó tömb (feltételezzük, hogy beágyazott tömböt, objektumot, egyéb iterálható elemet nem tartalmaz) tartalmazza-e a 23-as számot! Használj lineáris keresést! */
 console.log('8. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, bármilyen típusú elemeket tartalmazó tömb (feltételezzük, hogy beágyazott tömböt, objektumot, egyéb iterálható elemet nem tartalmaz) tartalmazza-e a 23-as számot! Használj lineáris keresést!');
@@ -129,45 +153,10 @@ function linearSearch(arr, srcNum) {
 console.log(linearSearch(array1, 21));
 
 /* 9. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, csak egész számokat tartalmazó tömb tartalmazza-e a 23-as számot! Használj logaritmikus keresést! Nézz utána mi az, milyen feltételei vannak, és hogyan valósítható meg! */
-//console.log('9. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, csak egész számokat tartalmazó tömb tartalmazza-e a 23-as számot! Használj logaritmikus keresést!')
-
-/* function binarySearch23(arr) {
-    let srcNum = 23;
-    let swapped;
-    do {
-        swapped = false;
-        for (i = 0; i < arr.length - 1; i += 1) {
-            if (arr[i] > arr[i + 1]) {
-                let temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                swapped = true
-            }
-        }
-    } while (swapped)
-
-    let start = 0;
-    let end = arr.length - 1;
-
-    while (start <= end) {
-        let mid = Math.floor((start + end) / 2);
-
-        if (arr[mid] === srcNum) {
-            return true;
-        } else if (arr[mid] < srcNum) {
-            start = arr[mid] + 1;
-        } else if (arr[mid] > srcNum) {
-            end = arr[mid] - 1;
-        }
-    }
-    return false;
-}
-
-console.log(binarySearch23(arrayBS)); */
+console.log('9. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, csak egész számokat tartalmazó tömb tartalmazza-e a 23-as számot! Használj logaritmikus keresést!')
 
 
-/*
-function bubbleSort(arr) {
+function bubbleSort2(arr) {
     let swapped;
     do {
         swapped = false;
@@ -182,7 +171,33 @@ function bubbleSort(arr) {
     } while (swapped)
     return arr;
 }
-*/
+
+//console.log(bubbleSort2(arrayBS));
+
+
+
+function binarySearch23(arr, srcNum) {
+    bubbleSort2(arr);
+    let start = 0;
+    let end = arr.length - 1;
+
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        console.log(mid);
+        if (arr[mid] === srcNum) {
+            return true;
+        } else if (arr[mid] < srcNum) {
+            start = arr[mid] + 1;
+        } else if (arr[mid] > srcNum) {
+            end = arr[mid] - 1;
+        }
+    }
+    return false;
+
+}
+
+console.log(binarySearch23([1, 2, 3, 4, 5, 6, 23], 23));
+
 
 
 /* 10. Írd ki, hogy egy tetszőlegese elemszámú, bármilyen típusú elemeket tartalmazó tömb (feltételezzük, hogy beágyazott tömböt, objektumot nem tartalmaz) hányszor tartalmazza a 23-as számot! */
