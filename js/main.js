@@ -121,7 +121,7 @@ console.log(array1[1]);
 console.log('7. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb harmadik legnagyobb elemét!');
 
 let length = array1.length;
-console.log(array1[length - 3]);
+console.log(array1[length - 3]); // Mert a tömb utolsó eleme az a 'length - 1'-ik elem!!!
 
 
 /*8. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, bármilyen típusú elemeket tartalmazó tömb (feltételezzük, hogy beágyazott tömböt, objektumot, egyéb iterálható elemet nem tartalmaz) tartalmazza-e a 23-as számot! Használj lineáris keresést! */
@@ -173,31 +173,33 @@ function bubbleSort2(arr) {
 }
 
 //console.log(bubbleSort2(arrayBS));
+const sortedArray = bubbleSort2(arrayBS);
+console.log(sortedArray)
 
-
-
-function binarySearch23(arr, srcNum) {
-    bubbleSort2(arr);
+/*
+function binarySearch23() {
     let start = 0;
-    let end = arr.length - 1;
+    let end = sortedArray.length - 1;
 
     while (start <= end) {
         let mid = Math.floor((start + end) / 2);
         console.log(mid);
-        if (arr[mid] === srcNum) {
+        if (sortedArray[mid] === search) {
             return true;
-        } else if (arr[mid] < srcNum) {
-            start = arr[mid] + 1;
-        } else if (arr[mid] > srcNum) {
-            end = arr[mid] - 1;
+        } else if (sortedArray[mid] < search) {
+            start = sortedArray[mid] + 1;
+        } else if (sortedArray[mid] > search) {
+            end = sortedArray[mid] - 1;
         }
     }
     return false;
 
 }
 
-console.log(binarySearch23([1, 2, 3, 4, 5, 6, 23], 23));
-
+//console.log(binarySearch23(23));
+//console.log(binarySearch23(sortedArray, 23));
+//console.log(binarySearch23([1, 2, 3, 4, 5, 6, 23], 23));
+*/
 
 
 /* 10. Írd ki, hogy egy tetszőlegese elemszámú, bármilyen típusú elemeket tartalmazó tömb (feltételezzük, hogy beágyazott tömböt, objektumot nem tartalmaz) hányszor tartalmazza a 23-as számot! */
@@ -227,7 +229,7 @@ function howMany(arr, srcNum) {
     } return howMany;
 }
 
-console.log(howMany(array1, 21));
+console.log('A kerestt szám ' + howMany(array1, 21) + ' alkalommal szerepel a tömbben.');
 
 /* 11. Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha nem ismered) segítségével egy tetszőleges elemszámú, csak lebegőpontos számokat tartalmazó tömb elemeit növekvő sorrendbe! Írasd ki a rendezett tömböt! */
 console.log('11. Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha nem ismered) segítségével egy tetszőleges elemszámú, csak lebegőpontos számokat tartalmazó tömb elemeit növekvő sorrendbe! Írasd ki a rendezett tömböt!');
@@ -276,8 +278,50 @@ function arrEvenOdd(arr) {
 arrEvenOdd(array1);
 
 
-/* 16. Adott két azonos elemszámú, csak egész számokat tartalmazó tömb. Külön tömbökbe készítsük el a két tömb: metszetét, unióját, különbségét, és descartes szorzatát. Írassuk ki az új tömböket!
+/* 16. Adott két azonos elemszámú, csak egész számokat tartalmazó tömb. Külön tömbökbe készítsük el a két tömb: metszetét, unióját, különbségét, és descartes szorzatát. Írassuk ki az új tömböket! */
 
+const arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const abbB = [3,6,9,12,15,18,21,24,27];
+
+
+// Metszet
+
+
+
+// Unió
+
+let unio = [];
+for (i = 0; i < arrA.length; i += 1) {
+    
+    unio.push(arrA[i]);
+}
+
+for (j = 0; j < arrB.length; j +=1) {
+    if (arrB)
+}
+console.log(unio);
+
+
+/*
+function linearSearch23(arr) {
+    let src = false;
+    for (i = 0; i < arr.length; i += 1) {
+        if (arr[i] === 23) {
+            src = true;
+        }
+    } return src;
+}
+*/
+
+// Különbség
+
+
+// Descartes szorzat
+
+
+/*
 Descartes szorzat: https://regi.tankonyvtar.hu/hu/tartalom/tamop425/0033_SCORM_GEMAN6206B/sco_01_03.htm
 
-https://www.mathreference.org/index/page/id/350/lg/hu*/
+https://www.mathreference.org/index/page/id/350/lg/hu
+
+*/
