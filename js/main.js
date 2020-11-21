@@ -155,7 +155,7 @@ console.log(linearSearch(array1, 21));
 /* 9. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, csak egész számokat tartalmazó tömb tartalmazza-e a 23-as számot! Használj logaritmikus keresést! Nézz utána mi az, milyen feltételei vannak, és hogyan valósítható meg! */
 console.log('9. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, csak egész számokat tartalmazó tömb tartalmazza-e a 23-as számot! Használj logaritmikus keresést!')
 
-
+/*
 function bubbleSort2(arr) {
     let swapped;
     do {
@@ -175,6 +175,7 @@ function bubbleSort2(arr) {
 //console.log(bubbleSort2(arrayBS));
 const sortedArray = bubbleSort2(arrayBS);
 console.log(sortedArray)
+*/
 
 /*
 function binarySearch23() {
@@ -200,6 +201,27 @@ function binarySearch23() {
 //console.log(binarySearch23(sortedArray, 23));
 //console.log(binarySearch23([1, 2, 3, 4, 5, 6, 23], 23));
 */
+
+function binarySearch(arr, search) {
+    let start = 0;
+    let end = arr.length;
+
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        if (arr[mid] === search) {
+            return true;
+        } else if (arr[mid] < search) {
+            start = mid + 1;
+        } else if (arr[mid] > search) {
+            end = mid - 1;
+        }
+    }
+    return false;
+}
+
+sortArray = [1, 2, 3, 4, 5, 7, 8, 9];
+console.log(binarySearch(sortArray, 6));
+console.log(binarySearch(sortArray, 7));
 
 
 /* 10. Írd ki, hogy egy tetszőlegese elemszámú, bármilyen típusú elemeket tartalmazó tömb (feltételezzük, hogy beágyazott tömböt, objektumot nem tartalmaz) hányszor tartalmazza a 23-as számot! */
@@ -281,7 +303,7 @@ arrEvenOdd(array1);
 /* 16. Adott két azonos elemszámú, csak egész számokat tartalmazó tömb. Külön tömbökbe készítsük el a két tömb: metszetét, unióját, különbségét, és descartes szorzatát. Írassuk ki az új tömböket! */
 
 const arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const abbB = [3,6,9,12,15,18,21,24,27];
+const abbB = [3, 6, 9, 12, 15, 18, 21, 24, 27];
 
 
 // Metszet
@@ -292,11 +314,11 @@ const abbB = [3,6,9,12,15,18,21,24,27];
 
 let unio = [];
 for (i = 0; i < arrA.length; i += 1) {
-    
+
     unio.push(arrA[i]);
 }
 
-for (j = 0; j < arrB.length; j +=1) {
+for (j = 0; j < arrB.length; j += 1) {
     if (arrB)
 }
 console.log(unio);
