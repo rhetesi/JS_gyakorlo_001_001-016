@@ -301,44 +301,43 @@ arrEvenOdd(array1);
 
 
 /* 16. Adott két azonos elemszámú, csak egész számokat tartalmazó tömb. Külön tömbökbe készítsük el a két tömb: metszetét, unióját, különbségét, és descartes szorzatát. Írassuk ki az új tömböket! */
-
+console.log('16. Adott két azonos elemszámú, csak egész számokat tartalmazó tömb. Külön tömbökbe készítsük el a két tömb: metszetét, unióját, különbségét, és descartes szorzatát. Írassuk ki az új tömböket!')
 const arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const abbB = [3, 6, 9, 12, 15, 18, 21, 24, 27];
+const arrB = [3, 6, 9, 12, 15, 18, 21, 24, 27];
 
+const cross = [];
 
 // Metszet
+console.log('Metszet');
+function crossOfSets (arrA, ArrB) {
+    
+    let temp;
+    for (i = 0; i < arrA.length; i += 1) {
+        temp = arrA[i];
+        for (j = 0; j < ArrB.length; j += 1) {
+            if (temp === arrB[j]) {
+                cross.push(temp);
+            }
+        }
+    }
+    return cross;
+}
 
+console.log(crossOfSets(arrA, arrB));
 
 
 // Unió
-
-let unio = [];
-for (i = 0; i < arrA.length; i += 1) {
-
-    unio.push(arrA[i]);
-}
-
-for (j = 0; j < arrB.length; j += 1) {
-    if (arrB)
-}
-console.log(unio);
+console.log('Unió');
 
 
-/*
-function linearSearch23(arr) {
-    let src = false;
-    for (i = 0; i < arr.length; i += 1) {
-        if (arr[i] === 23) {
-            src = true;
-        }
-    } return src;
-}
-*/
+
 
 // Különbség
+console.log('Különbség');
 
 
 // Descartes szorzat
+console.log('Descartes szorzat');
 
 
 /*
