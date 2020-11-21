@@ -52,7 +52,7 @@ console.log('3. Írasd ki egy tetszőleges elemszámú, csak egész számokat ta
 
 function arrAvg(arr) {
     let sum = 0;
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         sum = sum + arr[i];
     }
     let avg = sum / arr.length;
@@ -68,7 +68,7 @@ console.log('4. Írasd ki egy tetszőleges elemszámú, csak egész számokat ta
 
 function arrSum(arr) {
     let sum = 0;
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         sum = sum + arr[i];
     }
     return sum;
@@ -83,7 +83,7 @@ console.log('5. Írasd ki egy tetszőleges elemszámú, csak egész számokat ta
 
 function arrEven(arr) {
     let even = [];
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         if (arr[i] % 2 === 0) {
             even.push(arr[i]);
         }
@@ -101,7 +101,7 @@ function bubbleSort3(arr) {
     let swapped;
     do {
         swapped = false;
-        for (i = 0; i < arr.length - 1; i += 1) {
+        for (let i = 0; i < arr.length - 1; i += 1) {
             if (arr[i] > arr[i + 1]) {
                 let temp = arr[i];
                 arr[i] = arr[i + 1];
@@ -129,7 +129,7 @@ console.log('8. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, bá
 
 function linearSearch23(arr) {
     let src = false;
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         if (arr[i] === 23) {
             src = true;
         }
@@ -143,7 +143,7 @@ console.log(linearSearch23(array2));
 
 function linearSearch(arr, srcNum) {
     let src = false;
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         if (arr[i] === srcNum) {
             src = true;
         }
@@ -229,7 +229,7 @@ console.log('10. Írd ki, hogy egy tetszőlegese elemszámú, bármilyen típus�
 
 function howManyTwentyThree(arr) {
     let howMany = 0;
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         if (arr[i] === 23) {
             // howMany = howMany +1; --- ez is lehetne
             howMany += 1;
@@ -243,7 +243,7 @@ console.log(howManyTwentyThree(array1));
 
 function howMany(arr, srcNum) {
     let howMany = 0;
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         if (arr[i] === srcNum) {
             //howMany += 1;
             howMany++; // S akár így is növelhető egy változó értéke egyesével
@@ -260,7 +260,7 @@ function bubbleSort(arr) {
     let swapped;
     do {
         swapped = false;
-        for (i = 0; i < arr.length - 1; i += 1) {
+        for (let i = 0; i < arr.length - 1; i += 1) {
             if (arr[i] > arr[i + 1]) {
                 let temp = arr[i];
                 arr[i] = arr[i + 1];
@@ -274,19 +274,56 @@ function bubbleSort(arr) {
 
 console.log(bubbleSort(arrayBSort));
 
-/* 12.) Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha nem ismered) segítségével egy tetszőleges elemszámú, beágyazott tömb, és objektum kivételével bármilyen típusú elemeket tartalmazó tömb elemeit csökkenő sorrendbe! A nem szám típusú elemeket rakd a tömb végére az eredeti sorrendbe. Írasd ki a rendezett tömböt! */
+/* 12. Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha nem ismered) segítségével egy tetszőleges elemszámú, beágyazott tömb, és objektum kivételével bármilyen típusú elemeket tartalmazó tömb elemeit csökkenő sorrendbe! A nem szám típusú elemeket rakd a tömb végére az eredeti sorrendbe. Írasd ki a rendezett tömböt! */
+console.log('12. Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha nem ismered) segítségével egy tetszőleges elemszámú, beágyazott tömb, és objektum kivételével bármilyen típusú elemeket tartalmazó tömb elemeit csökkenő sorrendbe! A nem szám típusú elemeket rakd a tömb végére az eredeti sorrendbe. Írasd ki a rendezett tömböt!');
+
+const mixedArray = [23, true, 456, 79, 'alpha', 12, 'gamma', 75, 'beta'];
+
+const numbers = [], notNumbers = [];
+
+function numbersOrNotNubers(arr) {
+    for (let i = 0; i < arr.length; i += 1) {
+        if (typeof arr[i] === 'number') {
+            numbers.push(arr[i]);
+        } else {
+            notNumbers.push(arr[i]);
+        }
+    }
+
+    return numbers;
+    return notNumbers;
+}
+
+numbersOrNotNubers(mixedArray);
+const finalArray = bubbleSort(numbers).concat(notNumbers);
+console.log(finalArray);
+
+
 
 /* 13. Adott egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb. A tömb elemeit rendezzük növekvő sorrendbe. Ezután a felhasználótól kérjünk be egy számot (addig kérjünk be értéket, míg valóban egy véges egész számot ad meg). A számot szúrjuk be a tömbbe úgy, hogy a tömb továbbra is rendezett maradjon, tehát a megfelelő indexű helyre kerüljön be a plusz elem.
 Írasd ki a rendezett tömböt! */
+console.log('13. Adott egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb. A tömb elemeit rendezzük növekvő sorrendbe. Ezután a felhasználótól kérjünk be egy számot, addig kérjünk be értéket, míg valóban egy véges egész számot ad meg. A számot szúrjuk be a tömbbe úgy, hogy a tömb továbbra is rendezett maradjon, tehát a megfelelő indexű helyre kerüljön be a plusz elem. Írasd ki a rendezett tömböt!');
+
+const integerArray = [12, 56, 32, 78, 932, 875];
+
+bubbleSort(integerArray);
+
+//let insertable = window.prompt('Adj meg egy egész számot!');
+
+
+//console.log(insertable);
+
 
 /* 14. Adott egy tömb, mely azonos darabú egész számot, és szöveget tartalmaz véletlenszerű sorrendben. Rendezzük úgy a tömböt, hogy minden szám után egy string következzen! Írasd ki a rendezett tömböt! */
+
+
 
 /* 15. Adott egy tetszőleges pozitív egész számokat tartalmazó tömb. Válogassuk szét külön egy even (páros), és odd (páratlan) nevezetű tömbbe a páros, és páratlan számokat! Írjuk ki a 2 tömböt! */
 console.log('15. Adott egy tetszőleges pozitív egész számokat tartalmazó tömb. Válogassuk szét külön egy even (páros), és odd (páratlan) nevezetű tömbbe a páros, és páratlan számokat! Írjuk ki a 2 tömböt!');
 
 function arrEvenOdd(arr) {
     let even = [], odd = [];
-    for (i = 0; i < arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
         if (arr[i] % 2 === 0) {
             even.push(arr[i]);
         } else {
@@ -305,16 +342,17 @@ console.log('16. Adott két azonos elemszámú, csak egész számokat tartalmaz�
 const arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const arrB = [3, 6, 9, 12, 15, 18, 21, 24, 27];
 
-const cross = [];
 
 // Metszet
 console.log('Metszet');
-function crossOfSets (arrA, ArrB) {
-    
+const cross = [];
+
+function crossOfSets(arrA, ArrB) {
+
     let temp;
-    for (i = 0; i < arrA.length; i += 1) {
+    for (let i = 0; i < arrA.length; i += 1) {
         temp = arrA[i];
-        for (j = 0; j < ArrB.length; j += 1) {
+        for (let j = 0; j < ArrB.length; j += 1) {
             if (temp === arrB[j]) {
                 cross.push(temp);
             }
@@ -328,12 +366,44 @@ console.log(crossOfSets(arrA, arrB));
 
 // Unió
 console.log('Unió');
+const union = [];
 
+/* function unionOfSets(arrA, ArrB) {
+
+    for (a = 0; a < arrA.length; a += 1) {
+        union.push(arrA[a]);
+    }
+
+    let temp;
+
+
+    return union;
+}
+
+console.log(unionOfSets(arrA, arrB)); */
 
 
 
 // Különbség
 console.log('Különbség');
+const difference = [];
+
+function differenceOfSets(arrA, ArrB) {
+
+    let temp;
+    for (let i = 0; i < arrA.length; i += 1) {
+        //temp = arrA[i];
+        for (let j = 0; j < ArrB.length; j += 1) {
+            if (arrA[i] === arrB[j]) {
+                //break;
+            }
+        }
+        difference.push(arrA[i]);
+    }
+    return difference;
+}
+
+console.log(differenceOfSets(arrA, arrB));
 
 
 // Descartes szorzat
